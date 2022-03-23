@@ -16,7 +16,7 @@
         <nav class="navbar navbar-dark bg-primary">
             <div>
                 <h1>PERSEO</h1>
-                <p>Cursos online para profesionales</p>
+                <h3>Cursos online para profesionales</h3>
             </div>
             <div>
     <button class="btn btn-primary" type="button">Iniciar sesión</button>

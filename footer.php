@@ -2,7 +2,7 @@
     <nav class="navbar navbar-dark bg-primary">
         <div class="nav-item">
                 <h2>©️ PERSEO</h2>
-                <h3>Cursos online para profesionales</h3>
+                <p>Cursos online para profesionales</p>
         </div>
         <div class="nav-item">
             <p>Siguenos en estas Redes Sociales:</p>
