@@ -1,19 +1,36 @@
-<?php
-        include_once "conexionBaseDatos.php";
-        $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
-        if (!$conexion) {
-            echo "error al conectar con la base de datos";
-        }
-         $sql = "SELECT * FROM usuarios";
-         $resultSet = mysqli_query($conexion,$sql);
-        while($row=mysqli_fetch_row($resultSet)){
+<?php require_once 'headerHome.php';  ?>
 
-         
-        ?>
-<?php require_once 'header.php';  ?>
-<p>Hola <?php echo $row[2] ?>, estes es tu perfil profesional</p>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse sint dolorum assumenda harum et ullam maiores, sunt praesentium fugit sed autem ad laborum in voluptas, consectetur maxime repellendus error quibusdam?</p>
-<p>estos son los cursos en los que estas inscritos</p>
+<?php
+
+$email = $_POST['email'];
+$password1 = $_POST['password1'];
+
+$conexion = mysqli_connect("localhost", "root", "", "perseo");
+$consulta = "SELECT * FROM usuarios WHERE email = '$email' and password1= '$password1'";
+$resultLogin = mysqli_query($conexion, $consulta);
+$filas = mysqli_num_rows($resultLogin);
+
+if ($filas>0)
+{
+    echo "Hola <strong>" . $nombre . "</strong>, estás en tu página personalizada<br>"
+?>
+<a href='./index.php'>Finalizar sesión</a>
+<?php
+    echo  "<hr>";
+    echo  "<p>estos son los cursos en los que estas inscritos</p>";
+} else {
+    echo "Email o contraseña no coincide<br>" 
+?>
+    <a href='./login.php'>Vuelve a intentarlo</a>
+<?php } 
+
+mysqli_free_result($resultLogin);
+mysqli_close($conexion);
+?>
+
+
+
 <?php require_once 'footer.php';  ?>
 
-<?php } ?>
+
+

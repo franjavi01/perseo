@@ -1,7 +1,9 @@
 <?php
 
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_database = "perseo";
+namespace App;
+
+define("DBHOST", "localhost");
+define("DBNAME", "perseo");
+define("USER", "root");
+define("PASSWORD", "");
 
