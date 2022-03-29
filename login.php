@@ -12,7 +12,7 @@
 <h1>Iniciar sesión</h1>
     <?php require 'conexionBaseDatos.php'; ?>
     <form action="./home.php" method="post">
-        <input type="email" name="user" placeholder="Dirección Email" required><br>
+        <input type="email" name="email" placeholder="Dirección Email" required><br>
         <input type="password" name="password1" placeholder="Contraseña" required><br>
         <input type="submit" value="Enviar">
     </form>

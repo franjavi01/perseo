@@ -21,27 +21,37 @@
             <div>
             <?php
 
-//$email = $_POST['email'];
-//$nombre = $_POST['nombre'];
+$email = $_POST['email'];
 $password1 = $_POST['password1'];
 
+
 $conexion = mysqli_connect("localhost", "root", "", "perseo");
-$consulta = "SELECT * FROM usuarios WHERE  password1= '$password1'";
+$consulta = "SELECT * FROM usuarios where email = '$email' and password1 = '$password1'";
 $resultLogin = mysqli_query($conexion, $consulta);
 $filas = mysqli_num_rows($resultLogin);
 
-if ($filas>0)
-{
-    echo "Hola <strong>" . $nombre . "</strong>, estás en tu página personal<br>";
-    echo "<a href='./index.php'>Finalizar sesión</a>";
-} else {
-    echo "Email o contraseña no coincide<br>";
-    echo "<a href='./login.php'>Vuelve a intentarlo</a>";
-} 
+if($filas>0){
+
+    while($row=mysqli_fetch_row($resultLogin)){
+    echo "Hola <Strong>" . $row[2] . "</strong>, estás en tu página personal<br>";
+    echo "<a class='btn btn-primary' role='button' href='./index.php'>Finalizar sesión</a>";
+    
+    } 
+    
+}else{
+         echo "Usuario o contraseña no coincide<br>"; 
+         echo "<a class='btn btn-primary' role='button' href='./login.php'>Vuelve a intentarlo</a>";
+     }
+     
+    
+
+
+
 
 mysqli_free_result($resultLogin);
 mysqli_close($conexion);
-?>
+?>        
+
         </div>
-</nav>
-    </header>
+    </nav>
+</header>
