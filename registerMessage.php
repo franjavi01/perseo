@@ -12,7 +12,7 @@ $apellidos = $_POST['apellidos'];
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 
-$insert = "INSERT INTO 'usuarios' ('email', 'nombre', 'apellidos', 'password1') VALUES ('$email', '$nombre', '$apellidos', '$password1')";
+$insert = "INSERT INTO usuarios (email, nombre, apellidos, password1) VALUES ('$email', '$nombre', '$apellidos', '$password1')";
 
 $noRepeatPassword = mysqli_query($conexion, "SELECT * FROM usuarios WHERE password1 = '$password1'");
 if ($password1 != $password2) {
@@ -24,7 +24,7 @@ if ($password1 != $password2) {
 $noRepeatEmail = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email = '$email'");
 if(mysqli_num_rows($noRepeatEmail) > 0){
     echo "La dirección de correo electrónico que has introducido ya existe<br>";
-    echo "<a href='register.php'> Escoje otra dirección de correo electrónico</a>";
+    echo "<a href='./register.php'> Escoje otra dirección de correo electrónico</a>";
     exit;
 }
 
