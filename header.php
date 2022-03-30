@@ -19,7 +19,7 @@
                 <h3>Cursos online para profesionales</h3>
             </div>
             <div>
-    <a class="btn btn-primary" role="button" href="./login.php">Iniciar sesión</a>
-    <a class="btn btn-primary" role="button" href="./register.php">Registro</a>
+    <a class="btn btn-warning" role="button" href="./login.php">Iniciar sesión</a>
+    <a class="btn btn-warning" role="button" href="./register.php">Registro</a>
 </div>
     </header>
