@@ -40,7 +40,7 @@ if($filas>0){
     
 }else{
          echo "Usuario o contraseña no coincide<br>"; 
-         echo "<a class='btn btn-warning' role='button' href='./login.php'>Vuelve a intentarlo</a>";
+         echo "<a class='btn btn-warning' role='button' href='./index.php'>Vuelve a intentarlo</a>";
      }
      
     
