@@ -18,7 +18,7 @@
 $conexion = mysqli_connect("localhost", "root", "", "perseo");
 
 if (!$conexion) {
-    echo "error al conectar con la base de datos";
+    echo '<script>alert("error al conectar con la base de datos");window.location.href="./"</script>';
 }
 
 $email = $_POST['email'];
@@ -32,23 +32,21 @@ $insert = "INSERT INTO usuarios (email, nombre, apellidos, password1) VALUES ('$
 
 $noRepeatPassword = mysqli_query($conexion, "SELECT * FROM usuarios WHERE password1 = '$password1'");
 if ($password1 != $password2) {
-    echo "La repetición de la contaseña no coincide con la original<br>";
-    echo "<a href='./register.php'> Vuelve a intentarlo</a>"; 
+    echo '<script>alert("La repetición de la contaseña no coincide con la original\nVuelve a intentarlo");window.location.href="./"</script>'; 
     exit;
 }
 
 $noRepeatEmail = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email = '$email'");
 if(mysqli_num_rows($noRepeatEmail) > 0){
-    echo "La dirección de correo electrónico que has introducido ya existe<br>";
-    echo "<a href='./register.php'> Escoje otra dirección de correo electrónico</a>";
+    echo '<script>alert("La dirección de correo electrónico que has introducido ya existe\nEscoje otra dirección de correo electrónico");window.location.href="./"</script>';
     exit;
 }
 
 $resultRegister = mysqli_query($conexion, $insert);
 if (!$resultRegister) {
-    echo "error de registro";
+    echo '<script>alert("error de registro");window.location.href="./"</script>';
 }else{
-    echo "Te hemos enviado un enlace a tu correo electrónico. Comprueba que te ha llegado correctamente.";
+    echo '<script>alert("Te hemos enviado un enlace a tu correo electrónico\nComprueba que te ha llegado correctamente");window.location.href="./"</script>';
 }
 
 mysqli_close($conexion);

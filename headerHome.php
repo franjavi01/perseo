@@ -34,12 +34,12 @@ if($filas>0){
 
     while($row=mysqli_fetch_row($resultLogin)){
     echo "Hola <Strong>" . $row[2] . "</strong>, estás en tu página personal<br>";
-    echo "<a class='btn btn-warning' role='button' href='./index.php'>Finalizar sesión</a>";
+    echo "<a class='btn btn-warning' role='button' href='./'>Finalizar sesión</a>";
     
     } 
     
 }else{
-        echo '<script>alert("Usuario o contraseña no coincide");window.location.href="./index.php"</script>'; 
+        echo '<script>alert("Usuario o contraseña no coincide");window.location.href="./"</script>'; 
      }
      
     
