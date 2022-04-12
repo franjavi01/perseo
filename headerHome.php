@@ -21,6 +21,7 @@
             <div>
             <?php
 
+
 $email = $_POST['email'];
 $password1 = $_POST['password1'];
 
@@ -32,20 +33,24 @@ $filas = mysqli_num_rows($resultLogin);
 $filas = mysqli_fetch_assoc($resultLogin);
 $password_cifrado = $filas['password1'];
 
+
+
 if($filas>0 && password_verify($password1, $password_cifrado)){
 
-    while($row=mysqli_fetch_row($resultLogin)){
+    
         
-        echo "Hola <Strong>" . $row[2] . "</strong>, estás en tu página personal";
+        echo "Hola <Strong>";
+        echo $email;
+        echo "</strong>, estás en tu página personal<br>";
         echo "<a class='btn btn-warning' role='button' href='./'>Finalizar sesión</a>";
-    } 
+     
     
 }else{
         
     echo '<script>alert("Usuario o contraseña no coincide");window.location.href="./"</script>'; 
      }
      
-    
+     
 
 
 
