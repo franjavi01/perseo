@@ -34,7 +34,8 @@
                                 <form action="./home.php" method="post">
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" placeholder="Dirección de Email" atofocus required>
-                                        <input type="password" name="password1" class="form-control" placeholder="Contraseña" atofocus required>
+                                        <input type="password" name="password1" class="form-control" placeholder="Contraseña" atofocus>
+                                        <input type="checkbox" name="forgotPassword" autofocus> He olvidado la contraseña<br>       
                                         <input type="submit" name="enviar" value="Enviar">
                                     </div>
                                 </form>
