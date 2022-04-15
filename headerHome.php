@@ -33,18 +33,17 @@ $filas = mysqli_num_rows($resultLogin);
 $filas = mysqli_fetch_assoc($resultLogin);
 $password_cifrado = $filas['password1'];
 
-
+if($filas>0 && isset($_POST['forgotPassword'])){
+    echo '<script>alert("Te hemos enviado la contraseña a tu correo electrónico\nComprueba que te ha llegado correctamente");window.location.href="./"</script>';
+}
 
 if($filas>0 && password_verify($password1, $password_cifrado)){
 
-    
-        
-        echo "Hola <Strong>";
-        echo $email;
-        echo "</strong>, estás en tu página personal<br>";
-        echo "<a class='btn btn-warning' role='button' href='./'>Finalizar sesión</a>";
+    echo "Hola <Strong>";
+    echo $email;
+    echo "</strong>, estás en tu página personal<br>";
+    echo "<a class='btn btn-warning' role='button' href='./'>Finalizar sesión</a>";
      
-    
 }else{
         
     echo '<script>alert("Usuario o contraseña no coincide");window.location.href="./"</script>'; 
