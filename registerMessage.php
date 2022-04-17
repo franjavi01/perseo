@@ -27,8 +27,9 @@ $apellidos = $_POST['apellidos'];
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 $password_cifrado = password_hash($password1, PASSWORD_DEFAULT);
+$rol_id = $_POST['rol_id'];
 
-$insert = "INSERT INTO usuarios (email, nombre, apellidos, password1) VALUES ('$email', '$nombre', '$apellidos', '$password_cifrado')";
+$insert = "INSERT INTO usuarios (email, nombre, apellidos, password1, rol_id) VALUES ('$email', '$nombre', '$apellidos', '$password_cifrado', 2)";
 
 $noRepeatPassword = mysqli_query($conexion, "SELECT * FROM usuarios WHERE password1 = '$password1'");
 if ($password1 != $password2) {
