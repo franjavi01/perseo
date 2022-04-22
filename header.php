@@ -20,20 +20,15 @@
                 <h1>PERSEO</h1>
                 <h3>Cursos online para profesionales</h3>
             </div>
-            <div class="d-flex justify-content-end">
-                <div>
+            <div class="d-flex flex-row">
+                <div class="p-2">
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</button>
                     <?php require_once 'login.php';  ?>
                 </div>
-                <div>.</div>
-                <div>
+                <div class="p-2">
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#registerModal">Registro</button>
                     <?php require_once 'register.php';  ?>
                 </div>
             </div>    
-                   
-                        
-                    
-               
         </nav>    
     </header>
