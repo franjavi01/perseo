@@ -1,20 +1,25 @@
 <?php require_once 'headerHome.php';  ?>
 
 <?php
-        include_once "conexionBaseDatos.php";
+        $email = $_POST['email'];
+        $password1 = $_POST['password1'];
+        
+        
         $conexion = mysqli_connect("localhost", "root", "", "perseo");
-        if (!$conexion) {
-            echo "error al conectar con la base de datos";
-        }
-         $sql = "SELECT * FROM usuarios";
-         $resultSet = mysqli_query($conexion,$sql);
-        if($row=mysqli_fetch_row($resultSet) && $row[7] = 1){
+        $consulta = "SELECT * FROM usuarios where email = '$email'  ";
+        $resultLogin = mysqli_query($conexion, $consulta);
+        $filas = mysqli_fetch_array($resultLogin);
+        
+        
+        
+        if($filas['rol_id']==1){
             require_once 'admin.php';
-        }elseif ($row=mysqli_fetch_row($resultSet) && $row[7] = 2) {
+        } else if($filas['rol_id']==2){
             require_once 'client.php';
         }
 
-   
+        mysqli_free_result($resultLogin);
+        mysqli_close($conexion);
     
                 
             
