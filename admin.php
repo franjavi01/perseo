@@ -1,22 +1,18 @@
+<?php
+
+include "conexionBaseDatos.php";
+$conexion = mysqli_connect("localhost", "root", "", "perseo");
+$sql = "SELECT * FROM cursos";
+$query = mysqli_query($conexion, $sql);
+// $row = mysqli_array_fetch($query);
+
+?>
+
 <?php include_once "headerHome.php"; ?>
 
 <main>
     <h2>Introduce el nombre del curso</h2>
-    <?php
-        // if(isset($_REQUEST['guardar'])){
-        //     if(isset($_FILES['imagen']['nombre']['precio'])){
-        //         $nombre=$_FILES['nombre']['imagen'];
-        //         $precio=$_FILES['precio']['imagen'];
-        //         $imagenSubida=fopen($_FILES['imagen']['tmp_name'],'r');
-        //         $binariosImagen=fread($imagenSubida);
-        //         include_once "conexionBaseDatos.php";
-        //         $conexxion=mysqli_connect("localhost", "root", "", "perseo");
-        //         $binariosImagen=mysqli_escape_string($conexion,$binariosImagen);
-        //         $query="INSERT INTO cursos (nombre,imagen,precio) values '$nombre, '$imagen, '$precio'";
-        //     }
-        // }
-    ?>
-    <form action="./adminCrud.php" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="curso" class="form-label">Nombre del curso</label>
             <input type="text" class="form-control" name="nombre">
@@ -32,6 +28,35 @@
         </div>
         <button type="submit" class="btn btn-warning" name="guardar">Enviar</button>
     </form>
-</main>
 
-<?php require_once 'footer.php';  ?>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Curso</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+        
+            <?php while($row=mysqli_fetch_row($query)){ ?> 
+            <td><?php echo $row['curso']; ?></td>
+            <td><?php echo $row['imagen']; ?></td>
+            <td><?php echo $row['precio']; ?></td>
+            <?php } ?>
+            <td>Editar</td>
+            <td>Borrar</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    </main>
+
+    
+    
+<?php include_once 'footer.php';  ?>;
